@@ -1,3 +1,2 @@
 alias tat="dev-tat"
 alias binstubme="bundle install --binstubs .bundle/bin"
-alias yodoctor="yo doctor"

@@ -1,0 +1,16 @@
+#!/bin/bash
+string=`tmux list-session`
+directory_name=`basename $PWD`
+if [[ $string == *$directory_name* ]]
+then
+  tmux new-session -As $directory_name
+else
+  tmux -2 new-session -As $directory_name -d
+  tmux split-window -h
+  tmux select-pane -t 1
+  tmux send-keys -t $directory_name:0 "vim ." C-m
+  tmux select-pane -t 2
+  tmux split-window -v
+  tmux select-pane -t 1
+  tmux -2 attach-session -t $directory_name
+fi
