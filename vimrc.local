@@ -1,0 +1,27 @@
+colorscheme railscasts
+set background=dark
+
+:nnoremap <leader>w :w<Return>
+:nnoremap <leader>wq :wq<Return>
+:nnoremap <leader>e :Explore<Return>
+:nnoremap <Leader>l :call RunAllSpecs()<CR>
+
+set relativenumber
+let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+nnoremap <Leader>a :call RunAllSpecs()<CR>
+nnoremap <Leader>b :call Send_to_Tmux("bundle install\n")<CR>
+nnoremap <Leader>m :call Send_to_Tmux("migrate\n")<CR>
+nnoremap <Leader>sv :AV<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>e :Explore<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>at :AT<CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gp :Git push<CR>
+nnoremap <leader>to :tabonly<CR>
+nnoremap <leader>wq :wq<CR>
+nnoremap <Leader>l :call RunLastSpec()<CR>
+set clipboard=unnamed
+let g:tslime_always_current_session = 1
+set statusline=%{fugitive#statusline()}\ %f
+nnoremap <Leader>me :MarkdownEditBlock<CR>
