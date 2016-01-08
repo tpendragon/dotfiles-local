@@ -20,6 +20,7 @@ nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gp :Git push<CR>
 nnoremap <leader>to :tabonly<CR>
 nnoremap <leader>wq :wq<CR>
+nnoremap <leader>gri :Git rebase -i master<CR>
 nnoremap <Leader>l :call RunLastSpec()<CR>
 set clipboard=unnamed
 let g:tslime_always_current_session = 1
