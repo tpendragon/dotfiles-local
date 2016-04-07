@@ -7,8 +7,14 @@ set background=dark
 :nnoremap <Leader>l :call RunAllSpecs()<CR>
 
 set relativenumber
-let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
-nnoremap <Leader>a :call RunAllSpecs()<CR>
+" let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+let test#strategy = "tslime"
+let g:test#preserve_screen = 1
+nnoremap <Leader>a :TestSuite<CR>
+nnoremap <Leader>t :TestFile<CR>
+nnoremap <Leader>s :TestNearest<CR>
+nnoremap <Leader>l :TestLast<CR>
+
 nnoremap <Leader>b :call Send_to_Tmux("bundle install\n")<CR>
 nnoremap <Leader>m :call Send_to_Tmux("migrate\n")<CR>
 nnoremap <Leader>sv :AV<CR>
