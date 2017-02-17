@@ -30,4 +30,6 @@ nnoremap <leader>gri :Git rebase -i master<CR>
 set clipboard=unnamed
 let g:tslime_always_current_session = 1
 set statusline=%{fugitive#statusline()}\ %f
+let g:markdown_enable_mappings = 0
 nnoremap <Leader>me :MarkdownEditBlock<CR>
+vnoremap <Leader>me :MarkdownEditBlock<CR>

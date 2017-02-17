@@ -1,5 +1,6 @@
 # You probably already put this in
 set -g prefix2 C-a
+set -g prefix C-a
 bind-key -t vi-copy 'v' begin-selection
 bind-key -t vi-copy 'y' copy-selection
 # Use vim keybindings in copy mode
