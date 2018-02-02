@@ -1,4 +1,5 @@
 colorscheme railscasts
+set background=light
 set background=dark
 
 :nnoremap <leader>w :w<Return>
@@ -33,3 +34,14 @@ set statusline=%{fugitive#statusline()}\ %f
 let g:markdown_enable_mappings = 0
 nnoremap <Leader>me :MarkdownEditBlock<CR>
 vnoremap <Leader>me :MarkdownEditBlock<CR>
+nnoremap <Leader>rc :ALEFix<CR>
+augroup ft_rb
+    au!
+    " fix the SLOOOW syntax highlighting
+    au FileType ruby setlocal re=1 foldmethod=manual
+augroup END
+set re=1
+let g:ale_fixers = {
+\   'ruby': ['rubocop'],
+\}
+let g:ale_enabled = 1
