@@ -43,5 +43,6 @@ augroup END
 set re=1
 let g:ale_fixers = {
 \   'ruby': ['rubocop'],
+\    'elixir': ['mix_format']
 \}
 let g:ale_enabled = 1
