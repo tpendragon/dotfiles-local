@@ -49,3 +49,4 @@ let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \   'vue': ['eslint']
 \}
+autocmd FileType vue syntax sync fromstart
