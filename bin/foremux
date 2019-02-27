@@ -53,7 +53,7 @@ module Foremux
       env.merge(extra).each do |k, v|
         env_command << " #{k}=#{Shellwords.escape(v)}"
       end
-      "cd #{Shellwords.escape(root)}; exec #{env_command} #{command}"
+      "$SHELL -c 'cd #{Shellwords.escape(root)}; exec #{env_command} #{command}; $SHELL -i'"
     end
   end
 

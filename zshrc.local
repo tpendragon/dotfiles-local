@@ -28,3 +28,7 @@ export OCI_DIR=$(brew --prefix)/lib
 bung () {
         ag "$@" `bundle show --paths`
 }
+export PKG_CONFIG_PATH="/usr/local/opt/sqlite/lib/pkgconfig"
+export LDFLAGS="-L/usr/local/opt/sqlite/lib"
+export CPPFLAGS="-I/usr/local/opt/sqlite/include"
+export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
