@@ -50,3 +50,4 @@ let g:ale_fixers = {
 \   'vue': ['eslint']
 \}
 autocmd FileType vue syntax sync fromstart
+let g:ansible_vault_password_file = '/Users/tpendragon/.asdf/shims/lastpass-ansible'

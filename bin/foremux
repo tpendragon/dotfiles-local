@@ -51,7 +51,7 @@ module Foremux
       command = process.expanded_command(extra)
       env_command = 'env'
       env.merge(extra).each do |k, v|
-        env_command << " #{k}=#{Shellwords.escape(v)}"
+        env_command += " #{k}=#{Shellwords.escape(v)}"
       end
       "$SHELL -c 'cd #{Shellwords.escape(root)}; exec #{env_command} #{command}; $SHELL -i'"
     end
