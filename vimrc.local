@@ -28,6 +28,7 @@ nnoremap <leader>gp :Git push<CR>
 nnoremap <leader>to :tabonly<CR>
 nnoremap <leader>wq :wq<CR>
 nnoremap <leader>gri :Git rebase -i master<CR>
+nnoremap <leader>ln :set rnu!<CR>
 set clipboard=unnamed
 let g:tslime_always_current_session = 1
 set statusline=%{fugitive#statusline()}\ %f
@@ -51,3 +52,6 @@ let g:ale_fixers = {
 \}
 autocmd FileType vue syntax sync fromstart
 let g:ansible_vault_password_file = '/Users/tpendragon/.asdf/shims/lastpass-ansible'
+set tags^=.git/tags;~
+let g:ale_elixir_elixir_ls_release='~/Projects/elixir-ls/release'
+set omnifunc=ale#completion#OmniFunc
