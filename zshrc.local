@@ -37,7 +37,10 @@ if [ -f '/Users/tpendragon/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/tpen
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/tpendragon/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/tpendragon/google-cloud-sdk/completion.zsh.inc'; fi
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 export ANSIBLE_VAULT_PASSWORD_FILE=`command -v lastpass-ansible`
 
 . $(brew --prefix asdf)/asdf.sh
 export PATH=".git/safe/../../.bundle/bin:/Users/tpendragon/.asdf/shims:$PATH"
+source ~/.zsh/ssh-agent.zsh

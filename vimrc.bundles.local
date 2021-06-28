@@ -11,5 +11,6 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'gabrielelana/vim-markdown'
 Plug 'tpope/vim-rhubarb'
 Plug 'posva/vim-vue'
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 Plug 'thiagoalmeidasa/vim-ansible-vault'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
