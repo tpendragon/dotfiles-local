@@ -14,3 +14,4 @@ Plug 'posva/vim-vue'
 " Plug 'w0rp/ale'
 Plug 'thiagoalmeidasa/vim-ansible-vault'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'preservim/nerdtree'
