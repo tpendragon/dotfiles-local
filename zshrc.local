@@ -44,3 +44,6 @@ export ANSIBLE_VAULT_PASSWORD_FILE=`command -v lastpass-ansible`
 . $HOME/.asdf/asdf.sh
 export PATH=".git/safe/../../.bundle/bin:/Users/tpendragon/.asdf/shims:$PATH"
 source ~/.zsh/ssh-agent.zsh
+
+# Solargraph Global Configuration
+export SOLARGRAPH_GLOBAL_CONFIG=$HOME/.solargraph.yml
