@@ -10,6 +10,7 @@ Open up VIM and do the following:
     {
       "solargraph.diagnostics": true,
       "solargraph.useBundler": true,
-      "solargraph.promptDownload": false
+      "solargraph.promptDownload": false,
+      "solargraph.formatting": true
     }
     ```

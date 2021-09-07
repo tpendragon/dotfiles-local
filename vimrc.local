@@ -27,7 +27,7 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader>e :Explore<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>at :AT<CR>
-nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gs :Git<CR>
 nnoremap <leader>gp :Git push<CR>
 nnoremap <leader>to :tabonly<CR>
 nnoremap <leader>wq :wq<CR>
