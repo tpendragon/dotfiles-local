@@ -41,6 +41,6 @@ source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.in
 source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 export ANSIBLE_VAULT_PASSWORD_FILE=`command -v lastpass-ansible`
 
-. $(brew --prefix asdf)/asdf.sh
+. $HOME/.asdf/asdf.sh
 export PATH=".git/safe/../../.bundle/bin:/Users/tpendragon/.asdf/shims:$PATH"
 source ~/.zsh/ssh-agent.zsh
