@@ -28,7 +28,6 @@ bung () {
         ag "$@" `bundle show --paths`
 }
 export PKG_CONFIG_PATH="/usr/local/opt/sqlite/lib/pkgconfig"
-export LDFLAGS="-L/usr/local/opt/sqlite/lib"
 export CPPFLAGS="-I/usr/local/opt/sqlite/include"
 export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
 
@@ -37,13 +36,11 @@ if [ -f '/Users/tpendragon/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/tpen
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/tpendragon/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/tpendragon/google-cloud-sdk/completion.zsh.inc'; fi
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 export ANSIBLE_VAULT_PASSWORD_FILE=`command -v lastpass-ansible`
 
-. $HOME/.asdf/asdf.sh
 export PATH=".git/safe/../../.bundle/bin:/Users/tpendragon/.asdf/shims:$PATH"
-source ~/.zsh/ssh-agent.zsh
 
 # Solargraph Global Configuration
 export SOLARGRAPH_GLOBAL_CONFIG=$HOME/.solargraph.yml
