@@ -1,6 +1,7 @@
 colorscheme railscasts
 set background=light
 set background=dark
+set maxmempattern=20000
 
 :nnoremap <leader>w :w<Return>
 :nnoremap <leader>wq :wq<Return>
@@ -108,3 +109,8 @@ let g:test#custom_transformations = {
       \ 'hyrax_ruby': function('HyraxRspec')
       \ }
 let g:test#transformation = 'hyrax_ruby'
+let g:vim_markdown_folding_level = 6
+let g:vim_markdown_folding_disabled = 1
+
+:nnoremap <leader>toc :Toc<Return>
+let g:mkdp_theme = 'light'
