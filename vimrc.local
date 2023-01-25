@@ -41,6 +41,7 @@ let g:markdown_enable_mappings = 0
 nnoremap <Leader>me :MarkdownEditBlock<CR>
 vnoremap <Leader>me :MarkdownEditBlock<CR>
 nnoremap <Leader>rc :Format<CR>
+au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 augroup ft_rb
     au!
     " fix the SLOOOW syntax highlighting
