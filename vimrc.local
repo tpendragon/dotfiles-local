@@ -38,6 +38,7 @@ set clipboard=unnamed
 let g:tslime_always_current_session = 1
 set statusline=%{fugitive#statusline()}\ %f
 let g:markdown_enable_mappings = 0
+let g:ale_virtualtext_cursor = 'disabled'
 nnoremap <Leader>me :MarkdownEditBlock<CR>
 vnoremap <Leader>me :MarkdownEditBlock<CR>
 nnoremap <Leader>rc :Format<CR>
@@ -68,6 +69,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
