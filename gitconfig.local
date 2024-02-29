@@ -2,7 +2,10 @@
   cleanup = !sh -c 'git branch --merged main | grep -v main | xargs -n 1 git branch -d'
   cleanupm = !sh -c 'git branch --merged master | grep -v master | xargs -n 1 git branch -d'
   fpstack = "!git log --decorate=short --pretty='format:%D' origin/main.. | sed 's/, /\\n/g; s/HEAD -> //'  | grep -Ev '/|^$' | xargs git push --force-with-lease origin"
-  diffstack = "!git diff $(git merge-base --fork-point master)"
+  diffstack = "!git diff $(git merge-base --fork-point main)"
+  rebasestack = "!git rebase -i $(git merge-base --fork-point main)"
+  rb = "!f() { if [ $# -eq 0 ]; then set -- origin/main; git fetch origin main; fi && git rebase \"$@\"; }; f"
+  ri = "!f() { if [ $# -eq 0 ]; then set -- origin/main; fi; git rebase --interactive --keep-base \"$@\"; }; f"
 [user]
 	name = Trey Pendragon
 	email = tpendragon@princeton.edu
