@@ -45,3 +45,7 @@ export PATH=".git/safe/../../.bundle/bin:/Users/tpendragon/.asdf/shims:$PATH"
 # Solargraph Global Configuration
 export SOLARGRAPH_GLOBAL_CONFIG=$HOME/.solargraph.yml
 source ~/.zsh/ssh-agent.zsh
+export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@1.1/lib/pkgconfig"

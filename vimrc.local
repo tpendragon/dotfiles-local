@@ -48,7 +48,7 @@ augroup ft_rb
     " fix the SLOOOW syntax highlighting
     au FileType ruby setlocal re=1 foldmethod=manual
 augroup END
-set re=1
+set re=0
 " let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
 " let g:ale_linters = {'vue': ['eslint', 'vls']}
 " let g:ale_fixers = {
@@ -102,7 +102,8 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 function! HyraxRspec(cmd) abort
   call system("cat README.md | grep 'Hyrax'")
   if v:shell_error == 0
-    return substitute(a:cmd, 'bundle exec \(.*\)', 'docker-compose exec -w /app/samvera/hyrax-engine app sh -c "bundle exec \1"', '')
+    " return substitute(a:cmd, 'bundle exec \(.*\)', 'docker compose -f docker-compose-koppie.yml exec -w /app/samvera/hyrax-engine app sh -c "bundle exec \1"', '')
+    return substitute(a:cmd, 'bundle exec \(.*\)', 'docker compose exec -w /app/samvera/hyrax-engine app sh -c "bundle exec \1"', '')
   else
     return a:cmd
   endif
@@ -117,3 +118,11 @@ let g:vim_markdown_folding_disabled = 1
 
 :nnoremap <leader>toc :Toc<Return>
 let g:mkdp_theme = 'light'
+let g:test#javascript#runner = 'vitest'
+
+augroup auFileTypes
+  autocmd!
+  autocmd FileType markdown setlocal textwidth=0
+  autocmd FileType markdown setlocal wrap
+  autocmd FileType markdown setlocal linebreak
+augroup end

@@ -16,3 +16,4 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 Plug 'preservim/vim-markdown'
 Plug 'junegunn/vim-easy-align'
+Plug 'jvirtanen/vim-hcl'

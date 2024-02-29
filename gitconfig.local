@@ -4,3 +4,6 @@
 [user]
 	name = Trey Pendragon
 	email = tpendragon@princeton.edu
+[rebase]
+  autosquash = true
+	updateRefs = true
