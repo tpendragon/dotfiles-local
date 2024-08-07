@@ -109,10 +109,17 @@ function! HyraxRspec(cmd) abort
   endif
 endfunction
 
+function! DebugMix(cmd) abort
+  if filereadable('mix.exs')
+    return 'iex --dbg pry -S '.a:cmd.' --trace'
+  endif
+endfunction
+
 let g:test#custom_transformations = {
-      \ 'hyrax_ruby': function('HyraxRspec')
+      \ 'hyrax_ruby': function('HyraxRspec'),
+      \ 'iex_mix': function('DebugMix')
       \ }
-let g:test#transformation = 'hyrax_ruby'
+let g:test#transformation = 'iex_mix'
 let g:vim_markdown_folding_level = 6
 let g:vim_markdown_folding_disabled = 1
 
@@ -126,3 +133,4 @@ augroup auFileTypes
   autocmd FileType markdown setlocal wrap
   autocmd FileType markdown setlocal linebreak
 augroup end
+au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
