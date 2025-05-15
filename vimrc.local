@@ -1,5 +1,4 @@
-colorscheme railscasts
-set background=light
+colorscheme jellybeans
 set background=dark
 set maxmempattern=20000
 
@@ -10,16 +9,13 @@ set maxmempattern=20000
 
 :nnoremap <Leader>fj :%!python -m json.tool<CR>
 
-" set relativenumber
-" let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+" Run tests in tmux
 let test#strategy = "tslime"
 let g:test#preserve_screen = 1
 nnoremap <Leader>a :TestSuite<CR>
 nnoremap <Leader>t :TestFile<CR>
 nnoremap <Leader>s :TestNearest<CR>
 nnoremap <Leader>l :TestLast<CR>
-" nnoremap <Leader>nt :NERDTreeToggle<CR>
-" nnoremap <Leader>r :NERDTreeFind<CR>
 
 nnoremap <Leader>b :call Send_to_Tmux("bundle install\n")<CR>
 nnoremap <Leader>m :call Send_to_Tmux("migrate\n")<CR>
@@ -34,6 +30,8 @@ nnoremap <leader>to :tabonly<CR>
 nnoremap <leader>wq :wq<CR>
 nnoremap <leader>gri :Git rebase -i master<CR>
 nnoremap <leader>ln :set rnu!<CR>
+
+" Store clipboard.
 set clipboard=unnamed
 let g:tslime_always_current_session = 1
 set statusline=%{fugitive#statusline()}\ %f
@@ -49,19 +47,9 @@ augroup ft_rb
     au FileType ruby setlocal re=1 foldmethod=manual
 augroup END
 set re=0
-" let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
-" let g:ale_linters = {'vue': ['eslint', 'vls']}
-" let g:ale_fixers = {
-" \   'ruby': ['rubocop'],
-" \   'elixir': ['mix_format'],
-" \   'javascript': ['eslint'],
-" \   'vue': ['eslint']
-" \}
 autocmd FileType vue syntax sync fromstart
 let g:ansible_vault_password_file = '/Users/tpendragon/.asdf/shims/lastpass-ansible'
 set tags^=.git/tags;~
-" let g:ale_elixir_elixir_ls_release='~/Projects/elixir-ls/release'
-" set omnifunc=ale#completion#OmniFunc
 
 " COC Configuration
 " GoTo code navigation.
@@ -69,6 +57,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <leader>cl  <Plug>(coc-codelens-action)
 inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
 
 " Use K to show documentation in preview window.
@@ -98,28 +87,16 @@ endif
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
-" Run Hyrax specs in the container.
-function! HyraxRspec(cmd) abort
-  call system("cat README.md | grep 'Hyrax'")
-  if v:shell_error == 0
-    " return substitute(a:cmd, 'bundle exec \(.*\)', 'docker compose -f docker-compose-koppie.yml exec -w /app/samvera/hyrax-engine app sh -c "bundle exec \1"', '')
-    return substitute(a:cmd, 'bundle exec \(.*\)', 'docker compose exec -w /app/samvera/hyrax-engine app sh -c "bundle exec \1"', '')
-  else
-    return a:cmd
-  endif
-endfunction
-
-function! DebugMix(cmd) abort
-  if filereadable('mix.exs')
-    return 'iex --dbg pry -S '.a:cmd.' --trace'
-  endif
-endfunction
-
-let g:test#custom_transformations = {
-      \ 'hyrax_ruby': function('HyraxRspec'),
-      \ 'iex_mix': function('DebugMix')
-      \ }
-let g:test#transformation = 'iex_mix'
+" function! DebugMix(cmd) abort
+"   if filereadable('mix.exs')
+"     return 'iex --dbg pry -S '.a:cmd.' --trace'
+"   endif
+" endfunction
+"
+" let g:test#custom_transformations = {
+"       \ 'iex_mix': function('DebugMix')
+"       \ }
+" let g:test#transformation = 'iex_mix'
 let g:vim_markdown_folding_level = 6
 let g:vim_markdown_folding_disabled = 1
 
@@ -132,5 +109,15 @@ augroup auFileTypes
   autocmd FileType markdown setlocal textwidth=0
   autocmd FileType markdown setlocal wrap
   autocmd FileType markdown setlocal linebreak
+  autocmd FileType hcl setlocal textwidth=0
+  autocmd FileType hcl setlocal wrap
+  autocmd FileType hcl setlocal linebreak
 augroup end
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+
+au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
+au BufRead,BufNewFile *.eex,*.heex,*.leex,*.sface,*.lexs set filetype=eelixir
+au BufRead,BufNewFile mix.lock set filetype=elixir
+set termguicolors
+let g:gruvbox_contrast_dark = 'hard'
+set mouse=

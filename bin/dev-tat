@@ -35,7 +35,7 @@ create_if_needed_and_attach() {
 
 build_workspace() {
   tmux split-window -h -t "$session_name"
-  tmux send-keys -t "$session_name:.1" "vim ." C-m
+  tmux send-keys -t "$session_name:.1" "nvim ." C-m
   tmux split-window -v -t "$session_name"
   tmux select-pane -t "$session_name:.1"
   # tmux select-pane -t "$session_name:0.0"
