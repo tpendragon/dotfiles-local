@@ -53,12 +53,12 @@ set tags^=.git/tags;~
 
 " COC Configuration
 " GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <leader>cl  <Plug>(coc-codelens-action)
-inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
+nmap <silent> gd :lua vim.lsp.buf.definition()<CR>
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gr <Plug>(coc-references)
+" nmap <leader>cl  <Plug>(coc-codelens-action)
+" inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -66,7 +66,7 @@ function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
-    call CocAction('doHover')
+    lua vim.lsp.buf.hover()
   endif
 endfunction
 " Symbol renaming.
@@ -75,7 +75,7 @@ nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 " Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
+command! -nargs=0 Format :lua vim.lsp.buf.format({ async = false })
 set updatetime=300
 " Use <c-space> to trigger completion.
 if has('nvim')
@@ -114,6 +114,10 @@ augroup auFileTypes
   autocmd FileType hcl setlocal linebreak
 augroup end
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+let g:coc_filetype_map = {
+  \ 'rspec.ruby': 'ruby',
+  \ }
+
 
 au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
 au BufRead,BufNewFile *.eex,*.heex,*.leex,*.sface,*.lexs set filetype=eelixir
@@ -121,3 +125,105 @@ au BufRead,BufNewFile mix.lock set filetype=elixir
 set termguicolors
 let g:gruvbox_contrast_dark = 'hard'
 set mouse=
+lua <<EOF
+  on_attach = function(client, bufnr)
+    local maps = vim.keymap.set
+    local opts_l = { silent = true, noremap = true }
+  
+    maps('n', 'K', vim.lsp.buf.hover, opts_l)
+    maps({ 'n', 'i' }, '<C-k>', vim.lsp.buf.signature_help, opts_l)
+  end
+  -- Set up nvim-cmp.
+  local cmp = require'cmp'
+  cmp.setup {
+    snippet = {
+      expand = function(args)
+        vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
+      end,
+    },
+    mapping = {
+      ['<C-p>'] = cmp.mapping.select_prev_item(),
+      ['<C-n>'] = cmp.mapping.select_next_item(),
+      ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-Space>'] = cmp.mapping.complete(),
+      ['<C-e>'] = cmp.mapping.close(),
+      ['<CR>'] = cmp.mapping.confirm {
+        behavior = cmp.ConfirmBehavior.Replace,
+        select = true,
+      },
+      ['<Tab>'] = function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      else
+        fallback()
+        end
+        end,
+        ['<S-Tab>'] = function(fallback)
+        if cmp.visible() then
+          cmp.select_prev_item()
+        else
+          fallback()
+          end
+          end,
+    },
+    sources = cmp.config.sources({
+      { name = 'nvim_lsp' },
+      -- { name = 'vsnip' }, -- For vsnip users.
+      -- { name = 'luasnip' }, -- For luasnip users.
+      -- { name = 'ultisnips' }, -- For ultisnips users.
+      -- { name = 'snippy' }, -- For snippy users.
+    }, {
+      { name = 'buffer' },
+    })
+  }
+
+  -- To use git you need to install the plugin petertriho/cmp-git and uncomment lines below
+  -- Set configuration for specific filetype.
+  --[[ cmp.setup.filetype('gitcommit', {
+    sources = cmp.config.sources({
+      { name = 'git' },
+    }, {
+      { name = 'buffer' },
+    })
+ })
+ require("cmp_git").setup() ]]-- 
+
+  -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline({ '/', '?' }, {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+      { name = 'buffer' }
+    }
+  })
+
+  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+      { name = 'path' }
+    }, {
+      { name = 'cmdline' }
+    }),
+    matching = { disallow_symbol_nonprefix_matching = false }
+  })
+
+  local lspconfig = require('lspconfig')
+  vim.lsp.enable('ruby_lsp')
+  vim.lsp.enable('solargraph', false)
+  vim.lsp.enable('jsonls')
+
+  -- Set up lspconfig.
+  local capabilities = require('cmp_nvim_lsp').default_capabilities()
+  -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+  lspconfig.elixirls.setup {
+    capabilities = capabilities,
+    cmd = { "/Users/tpendragon/Projects/elixir-ls/release/language_server.sh" }
+  }
+  lspconfig.ruby_lsp.setup {
+    capabilities = capabilities
+  }
+  lspconfig.jsonls.setup {
+    capabilities = capabilities
+  }
+EOF
