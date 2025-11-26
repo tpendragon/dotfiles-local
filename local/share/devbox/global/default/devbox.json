@@ -38,7 +38,8 @@
     "reattach-to-user-namespace": "latest",
     "ag":                         "latest",
     "typescript-language-server": "latest",
-    "direnv":                     "latest"
+    "direnv":                     "latest",
+    "gh":                         "latest"
   },
   "shell": {
     "init_hook": [
