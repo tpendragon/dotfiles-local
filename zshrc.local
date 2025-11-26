@@ -53,3 +53,5 @@ export PKG_CONFIG_PATH="DEVBOX_PACKAGES_DIR/lib/pkgconfig"
 export PGGSSENCMODE="disable"
 eval "$(devbox global shellenv)"
 export LD_LIBRARY_PATH="$DEVBOX_PACKAGES_DIR/lib"
+# Automatically load up devbox things via direnv.
+eval "$(direnv hook zsh)"

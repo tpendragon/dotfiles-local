@@ -37,7 +37,8 @@
     "tmux":                       "latest",
     "reattach-to-user-namespace": "latest",
     "ag":                         "latest",
-    "typescript-language-server": "latest"
+    "typescript-language-server": "latest",
+    "direnv":                     "latest"
   },
   "shell": {
     "init_hook": [
