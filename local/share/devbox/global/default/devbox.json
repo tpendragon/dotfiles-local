@@ -1,0 +1,52 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.14.0/.schema/devbox.schema.json",
+  "packages": {
+    "vips": {
+      "version": "latest",
+      "outputs": ["out", "dev", "bin"]
+    },
+    "poppler": {
+      "version": "latest",
+      "outputs": ["out", "dev"]
+    },
+    "neovim":                       "latest",
+    "vscode-langservers-extracted": "latest",
+    "jq":                           "latest",
+    "hocr-tools":                   "latest",
+    "llama-cpp":                    "latest",
+    "tesseract":                    "latest",
+    "sentencepiece": {
+      "version": "latest",
+      "outputs": ["bin", "dev", "out"]
+    },
+    "cmake":                      "latest",
+    "rust-analyzer":              "latest",
+    "fzf":                        "latest",
+    "aws-sam-cli":                "latest",
+    "opkssh":                     "0.8.0",
+    "vfkit":                      "latest",
+    "qemu":                       "7.0.0",
+    "podman":                     "4.9.3",
+    "lastpass-cli":               "latest",
+    "wget":                       "latest",
+    "rcm":                        "latest",
+    "git":                        "latest",
+    "openssl":                    "latest",
+    "asdf":                       "latest",
+    "tmuxp":                      "latest",
+    "tmux":                       "latest",
+    "reattach-to-user-namespace": "latest",
+    "ag":                         "latest",
+    "typescript-language-server": "latest"
+  },
+  "shell": {
+    "init_hook": [
+      "echo 'Welcome to devbox!' > /dev/null"
+    ],
+    "scripts": {
+      "test": [
+        "echo \"Error: no test specified\" && exit 1"
+      ]
+    }
+  }
+}

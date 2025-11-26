@@ -22,7 +22,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'posva/vim-vue'
 Plug 'thiagoalmeidasa/vim-ansible-vault'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
+Plug 'miyataka/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 Plug 'preservim/vim-markdown'
 Plug 'junegunn/vim-easy-align'
 Plug 'jvirtanen/vim-hcl'
@@ -34,3 +34,4 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
+UnPlug 'dense-analysis/ale'
