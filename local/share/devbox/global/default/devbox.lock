@@ -7,51 +7,51 @@
       "source": "devbox-search",
       "version": "2.2.0"
     },
-    "asdf@latest": {
+    "asdf-vm@latest": {
       "last_modified": "2025-11-23T21:50:36Z",
-      "resolved": "github:NixOS/nixpkgs/ee09932cedcef15aaf476f9343d1dea2cb77e261#asdf",
+      "resolved": "github:NixOS/nixpkgs/ee09932cedcef15aaf476f9343d1dea2cb77e261#asdf-vm",
       "source": "devbox-search",
-      "version": "3.3.4",
+      "version": "0.15.0",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/si56w9mfrlbxgnpx02gzfy2cyx0973lj-asdf-3.3.4",
+              "path": "/nix/store/cfw0w3ns0z3wwjfp614n2bc28lh1s173-asdf-vm-0.15.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/si56w9mfrlbxgnpx02gzfy2cyx0973lj-asdf-3.3.4"
+          "store_path": "/nix/store/cfw0w3ns0z3wwjfp614n2bc28lh1s173-asdf-vm-0.15.0"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/jxqkld22hz0xhcjximvp8x0g6hwfrxsx-asdf-3.3.4",
+              "path": "/nix/store/8b1hfkq95c8w2iwvqjhr31jcl3hrww37-asdf-vm-0.15.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/jxqkld22hz0xhcjximvp8x0g6hwfrxsx-asdf-3.3.4"
+          "store_path": "/nix/store/8b1hfkq95c8w2iwvqjhr31jcl3hrww37-asdf-vm-0.15.0"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/gxr2y90vvcpmhfx7nanaa7sw112b936f-asdf-3.3.4",
+              "path": "/nix/store/yj3f8l1k90wcz13r8k7p6xavsc4hpj6i-asdf-vm-0.15.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/gxr2y90vvcpmhfx7nanaa7sw112b936f-asdf-3.3.4"
+          "store_path": "/nix/store/yj3f8l1k90wcz13r8k7p6xavsc4hpj6i-asdf-vm-0.15.0"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/wdsdr7hyf4n364lclzahld33ars1rfj9-asdf-3.3.4",
+              "path": "/nix/store/4n62fwiz81kj40da638hd413afnn8arh-asdf-vm-0.15.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/wdsdr7hyf4n364lclzahld33ars1rfj9-asdf-3.3.4"
+          "store_path": "/nix/store/4n62fwiz81kj40da638hd413afnn8arh-asdf-vm-0.15.0"
         }
       }
     },
@@ -116,6 +116,70 @@
             }
           ],
           "store_path": "/nix/store/lvr5knwl3swy6ixh56rgvivbh29044pm-aws-sam-cli-1.135.0"
+        }
+      }
+    },
+    "awscli@latest": {
+      "last_modified": "2025-11-23T21:50:36Z",
+      "resolved": "github:NixOS/nixpkgs/ee09932cedcef15aaf476f9343d1dea2cb77e261#awscli",
+      "source": "devbox-search",
+      "version": "1.42.18",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/2clwsf4dvcdh3p7jzfhpa744j467bh87-awscli-1.42.18",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/y89wxym3smjws52ddngi8ml283aifv0n-awscli-1.42.18-dist"
+            }
+          ],
+          "store_path": "/nix/store/2clwsf4dvcdh3p7jzfhpa744j467bh87-awscli-1.42.18"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/8g9bjs1b1pzfy6v53m4580p3bw6w7rcb-awscli-1.42.18",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/j7841jck3pspvc6xvy8bg3avggv55d3s-awscli-1.42.18-dist"
+            }
+          ],
+          "store_path": "/nix/store/8g9bjs1b1pzfy6v53m4580p3bw6w7rcb-awscli-1.42.18"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/5vkjqj9fbkay8l7jjkhwnflkbh9qk44l-awscli-1.42.18",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/06d27cjqr6p9j7lsxql85y75182xrwnx-awscli-1.42.18-dist"
+            }
+          ],
+          "store_path": "/nix/store/5vkjqj9fbkay8l7jjkhwnflkbh9qk44l-awscli-1.42.18"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/kv1428ahrpdrgidq8g2g9bj2488n2p1k-awscli-1.42.18",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/9jrlm8iz2pcgkwp8lxr2ifd9rla0sb3y-awscli-1.42.18-dist"
+            }
+          ],
+          "store_path": "/nix/store/kv1428ahrpdrgidq8g2g9bj2488n2p1k-awscli-1.42.18"
         }
       }
     },

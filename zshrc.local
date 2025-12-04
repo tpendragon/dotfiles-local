@@ -40,7 +40,8 @@ if [ -f '/Users/tpendragon/google-cloud-sdk/completion.zsh.inc' ]; then . '/User
 # source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 export ANSIBLE_VAULT_PASSWORD_FILE=`command -v lastpass-ansible`
 
-export PATH=".git/safe/../../.bundle/bin:/Users/tpendragon/.asdf/shims:$PATH"
+export PATH=".git/safe/../../.bundle/bin:$PATH"
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 # # Solargraph Global Configuration
 # export SOLARGRAPH_GLOBAL_CONFIG=$HOME/.solargraph.yml
