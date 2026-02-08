@@ -43,7 +43,53 @@
     "direnv":                     "latest",
     "gh":                         "latest",
     "asdf-vm":                    "latest",
-    "awscli":                     "latest"
+    "awscli":                     "latest",
+    "pkg-config":                 "latest",
+    "claude-code":                "latest",
+    "zlib": {
+      "version": "latest",
+      "outputs": ["out", "dev", "static"]
+    },
+    "llvm_21": {
+      "version": "latest",
+      "outputs": ["dev", "out", "lib", "python"]
+    },
+    "clang":     "latest",
+    "coreutils": "latest",
+    "readline": {
+      "version": "latest",
+      "outputs": ["out", "dev"]
+    },
+    "libffi": {
+      "version": "latest",
+      "outputs": ["out", "dev"]
+    },
+    "ncurses": {
+      "version": "latest",
+      "outputs": ["out", "dev"]
+    },
+    "libyaml": {
+      "version": "latest",
+      "outputs": ["out", "dev"]
+    },
+    "libyaml.dev": "",
+    "libiconv": {
+      "version": "latest",
+      "outputs": ["out", "dev"]
+    },
+    "iconv": {
+      "version": "latest",
+      "outputs": ["out", "dev"]
+    },
+    "libxml2": {
+      "version": "latest",
+      "outputs": ["out", "dev"]
+    },
+    "libxslt": {
+      "version": "latest",
+      "outputs": ["out", "dev"]
+    },
+    "xz": "latest"
   },
   "shell": {
     "init_hook": [

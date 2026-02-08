@@ -215,6 +215,8 @@ lua <<EOF
   vim.lsp.enable('ruby_lsp')
   vim.lsp.enable('jsonls')
   vim.lsp.enable('ts_ls')
+  vim.lsp.enable('elixirls')
+  vim.lsp.enable('html')
 
   -- Set up lspconfig.
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -239,6 +241,9 @@ lua <<EOF
   vim.lsp.config('ts_ls', {
     capabilities = capabilities
   })
+  vim.lsp.config('html', {
+    capabilities = capabilities
+    })
 EOF
 autocmd BufNewFile,BufRead Dockerfile* set syntax=dockerfile
 autocmd! ale
