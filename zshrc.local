@@ -62,9 +62,10 @@ if [ -d "$DEVBOX_PACKAGES_DIR/share/asdf-vm/completions" ]; then
 fi
 eval "$(devbox global shellenv)"
 export LD_LIBRARY_PATH="$DEVBOX_PACKAGES_DIR/lib"
-export DYLD_LIBRARY_PATH="$DEVBOX_PACKAGES_DIR/lib:$DYLD_LIBRARY_PATH"
+#export DYLD_LIBRARY_PATH="$DEVBOX_PACKAGES_DIR/lib:$DYLD_LIBRARY_PATH"
 export LDFLAGS="-L$DEVBOX_PACKAGES_DIR/lib"
 export CPPFLAGS="-I$DEVBOX_PACKAGES_DIR/include"
 export CPATH="$DEVBOX_PACKAGES_DIR/include"
+export KERL_CONFIGURE_OPTIONS="--with-ssl=$DEVBOX_PACKAGES_DIR"
 # Automatically load up devbox things via direnv.
 eval "$(direnv hook zsh)"

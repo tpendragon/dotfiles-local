@@ -73,10 +73,6 @@
       "outputs": ["out", "dev"]
     },
     "libyaml.dev": "",
-    "libiconv": {
-      "version": "latest",
-      "outputs": ["out", "dev"]
-    },
     "iconv": {
       "version": "latest",
       "outputs": ["out", "dev"]
@@ -89,7 +85,15 @@
       "version": "latest",
       "outputs": ["out", "dev"]
     },
-    "xz": "latest"
+    "xz":           "latest",
+    "libiconvReal": "latest",
+    "openssl.dev":  "",
+    "openssl_3": {
+      "version": "latest",
+      "outputs": ["out", "dev"]
+    },
+    "parallel": "latest",
+    "ffmpeg":   "latest"
   },
   "shell": {
     "init_hook": [
