@@ -94,7 +94,7 @@
     "ffmpeg":   "latest",
     "postgresql": {
       "version": "15.7",
-      "outputs": ["lib"]
+      "outputs": ["lib", "out"]
     }
   },
   "shell": {
