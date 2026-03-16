@@ -17,7 +17,7 @@
     "tesseract":                    "latest",
     "sentencepiece": {
       "version": "latest",
-      "outputs": ["bin", "dev", "out"]
+      "outputs": ["dev", "out"]
     },
     "cmake":         "latest",
     "rust-analyzer": "latest",
@@ -33,7 +33,7 @@
     "git":           "latest",
     "openssl": {
       "version": "latest",
-      "outputs": ["bin", "dev", "out"]
+      "outputs": ["dev", "out"]
     },
     "tmuxp":                      "latest",
     "tmux":                       "latest",
@@ -72,10 +72,9 @@
       "version": "latest",
       "outputs": ["out", "dev"]
     },
-    "libyaml.dev": "",
     "iconv": {
       "version": "latest",
-      "outputs": ["out", "dev"]
+      "outputs": ["dev"]
     },
     "libxml2": {
       "version": "latest",
@@ -87,17 +86,20 @@
     },
     "xz":           "latest",
     "libiconvReal": "latest",
-    "openssl.dev":  "",
     "openssl_3": {
       "version": "latest",
       "outputs": ["out", "dev"]
     },
     "parallel": "latest",
-    "ffmpeg":   "latest"
+    "ffmpeg":   "latest",
+    "postgresql": {
+      "version": "15.7",
+      "outputs": ["lib"]
+    }
   },
   "shell": {
     "init_hook": [
-      "echo 'Welcome to devbox!' > /dev/null"
+      "unset DEVELOPER_DIR"
     ],
     "scripts": {
       "test": [
